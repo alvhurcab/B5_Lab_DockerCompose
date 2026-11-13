@@ -1,0 +1,26 @@
+Práctica 3 - Despliegue de escenarios con Docker Compose
+Alumno: Álvaro Hurtado Caballero - Grupo 1
+
+Pasos realizados para la realización de la práctica:
+
+1. Preparación del entorno:
+   - Se actualizaron los repositorios del sistema y se instaló Docker junto con el plugin de Docker Compose utilizando los comandos 'sudo apt update' y 'sudo apt install -y docker.io docker-compose-plugin'.
+
+2. Creación del archivo de configuración:
+   - Se creó el directorio de trabajo 'pgpi-g1-HurtadoCaballero-Alvaro-lab3' y dentro de él, el fichero de configuración 'docker-compose.yml'.
+   - Se definieron los servicios 'db' (Base de datos MySQL 8.0 optimizada) y 'wordpress' (Servidor web CMS), estableciendo las variables de entorno para la conexión y los volúmenes persistentes ('db_data' y 'wordpress_data').
+   - Se configuró el mapeo de puertos exponiendo el servicio web en el puerto 8008 del host.
+
+3. Despliegue del escenario:
+   - Mediante la interfaz de terminal xterm.js, se arrancaron los servicios en segundo plano de forma limpia ejecutando el comando 'docker compose up -d'.
+   - Se verificó con 'docker compose ps' que tanto el contenedor de la base de datos como el de WordPress se encontraban en estado activo ("Up") y funcionando correctamente.
+
+4. Configuración del entorno gráfico y WordPress:
+   - Se instaló un entorno gráfico ligero y un navegador en la máquina virtual para permitir la navegación local.
+   - Accediendo visualmente a través de noVNC, se inició la sesión gráfica mediante 'startx' y se abrió el navegador apuntando a 'http://localhost:8008'.
+   - Se completó el asistente de instalación inicial de WordPress, estableciendo el título del sitio, el idioma y el usuario administrador 'alvhurcab', validando la conexión correcta con la base de datos.
+
+5. Empaquetado final y limpieza:
+   - Se documentó el proceso de la práctica en este fichero ('ejercicio.txt').
+   - Se comprimió el directorio completo en un archivo en formato .zip con la nomenclatura requerida ('pgpi-g1-HurtadoCaballero-Alvaro-lab3.zip').
+   - Finalmente, se detuvieron y eliminaron los contenedores y volúmenes mediante 'docker compose down -v' para dejar el entorno limpio.
